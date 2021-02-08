@@ -1,0 +1,21 @@
+{
+  "name": "dataguru",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -r esm app.js"
+  },
+  "author": {
+    "name": "Alexandre Em",
+    "email": "alexandre.em@protonmail.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  }
+}
