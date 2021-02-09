@@ -1,5 +1,6 @@
 import image from './src/routes/image'
 import tag from './src/routes/tag'
+import datasets from './src/routes/datasets'
 import express from 'express'
 import dotenv from 'dotenv'
 import db from './src/db/db'
@@ -15,6 +16,7 @@ app.use(express.json())
 // Routes
 app.use('/image', image)
 app.use('/tag', tag)
+app.use('/group', datasets)
 
 
 // Path to uploaded images
