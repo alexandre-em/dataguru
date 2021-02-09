@@ -13,9 +13,9 @@ const getNamesDatasets = (req, res) => {
 }
 
 const getDatasets = (req, res) => {
-    const body = req.body
+    const id = req.params.id
     // Insertion SQL query
-    const query = `SELECT * FROM ${nameTable} INNER JOIN ${"images"} USING(${imgId})`
+    const query = `SELECT * FROM ${nameTable} INNER JOIN ${"images"} USING(${imgId}) WHERE ${name}='${id}'`
 
     // Call a pool connecrion and Apply the query
     db.query(query, function (err, result) {
