@@ -1,34 +1,29 @@
 import image from './src/routes/image'
 import tag from './src/routes/tag'
-// import { connect } from './db/connection.js'
 import express from 'express'
 import dotenv from 'dotenv'
-import mysql from 'mysql'
-import path from 'path'
-
+import db from './src/db/db'
 
 // Initialisation
 dotenv.config()
 const PORT = process.env.PORT || 8080
 const app = express()
-// const connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'root',
-//     database: 'dataguruDB'
-// })
 
-// middlewares
+// Middlewares
 app.use(express.json())
-// connection.connect()
 
 // Routes
 app.use('/image', image)
 app.use('/tag', tag)
+
+
+// Path to uploaded images
 app.use(express.static(__dirname + '/public'));
 
-// connection
+// Connection
 app.listen(PORT, () => {
     console.log(`Running server at port: ${PORT}...`)
-    // connect()
+    db.on('connection', function (connection) {
+        connection.query('SET SESSION auto_increment_increment=1')
+    });
 })

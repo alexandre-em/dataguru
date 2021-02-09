@@ -1,17 +1,23 @@
 import { Router } from 'express'
+import { allTags, createTag } from '../controller/tag'
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    console.log("get tags")
+/**
+ * Get all tags created
+ * @route {GET} /tag/all
+ */
+router.get('/all', (req, res) => {
+    allTags(req, res)
 })
 
-router.post('/', (req, res) => {
-    console.log("post tags")
-})
-
-router.delete('/:id', (req, res) => {
-    console.log("deletes tags")
+/**
+ * Create a new tag with a `name`
+ * @route {POST} /image/tag
+ * @bodyParam String: name
+ */
+router.post('/create', (req, res) => {
+    createTag(req, res)
 })
 
 export default router
