@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  db:
+    build: ./mysql
+    restart: always
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest   
+    depends_on:       
+      - db     
+    ports:       
+      - "3312:80"
+volumes:
+  my-db:

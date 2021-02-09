@@ -1,7 +1,4 @@
 .env
-docker
 node_modules
-src/config
 src/test
-src/models
 public/images/upload/*.jpg
